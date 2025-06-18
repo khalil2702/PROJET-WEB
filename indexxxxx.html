@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"  content="width=device-width, initial-scale=1" />
+  <title>KAAY NIOU DEM - Transport</title>
+
+  <!-- Lien  vers Font Awesome pour les icônes -->
+  <link rel= "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Lien vers le fichier CSS externe -->
+  <link rel="stylesheet" href="indexxxxx.css">
+</head>
+<body>
+
+  <header>
+    <h1>KAAY NIOU DEM</h1>
+    <p>Le choix de transport intelligent, rapide et humain</p>
+  </header>
+
+  <!-- Carrousel fade automatique -->
+  <div class="carousel-fade-container">
+    <div class="carousel-fade-slide show">
+      <img src="image/WhatsApp Image 2025-06-11 à 22.26.31_d9214bf4.jpg" alt="Image 1">
+    </div>
+    <div class="carousel-fade-slide">
+      <img src="image/WhatsApp Image 2025-06-12 à 00.51.50_6dfe4ed4.jpg" alt="Image 2">
+    </div>
+    <div class="carousel-fade-slide">
+      <img src="image/WhatsApp Image 2025-06-15 à 20.42.40_9379c0c9.jpg" alt="Image 3">
+    </div>
+    <div class="carousel-fade-slide">
+      <img src="image/WhatsApp Image 2025-06-15 à 20.42.40_bfc96aa2.jpg" alt="Image 4">
+    </div>
+
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <section class="welcome-message">
+    Bienvenue sur la plateforme officielle de transport KAAY NIOU DEM. Explorez le Sénégal en toute confiance !
+  </section>
+
+  <section class="clients-section">
+    <h2> Voyagez Avec Aisance</h2>
+    <div class="clients-photos">
+      <img src="image/young-african-american-woman-comfortably-sitting-by-train-window-watching-beautiful-scenery_979187-9257.avif" alt="Client 1">
+      <img src="image/amis-vue-cote-voyageant-train_23-2150578071.avif" alt="Client 2">
+      <img src="image/femme-afro-americaine-accrochee-porte-train_181624-45504.avif" alt="Client 3">
+    </div>
+  </section>
+
+  <section class="menu-navigation">
+    <h3>Accédez à nos services</h3>
+    <a href="services.html">Entrer sur la page des services</a>
+  </section>
+
+  <section class="avis-section">
+    <h2>Ce que disent nos clients</h2>
+    <div class="avis-cards">
+      <div class="avis-card">
+        <img src="image/portrait-femme-affaires-confiant-visage-souriant_53876-137693.avif" alt="Avis 1">
+        <p>"Ponctualité au top et personnel très professionnel !"</p>
+        <div class="author">- Aminata D.</div>
+      </div>
+      <div class="avis-card">
+        <img src="image/charmant-homme-afro-americain-souriant-chapeau_33839-4336.avif" alt="Avis 2">
+        <p>"Un service irréprochable. Je recommande vivement."</p>
+        <div class="author">- Ousmane T.</div>
+      </div>
+      <div class="avis-card">
+        <img src="image/portrait-jeune-femme-souriante-isolee_23-2149158579.avif" alt="Avis 3">
+        <p>"Voyage agréable avec des véhicules confortables."</p>
+        <div class="author">- Awa S.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Suivez-nous pour plus d'informations :</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>&copy; 2025 KAAY NIOU DEM - Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script JS pour le carrousel -->
+  <script>
+    const slides = document.querySelectorAll(".carousel-fade-slide");
+    const progressBar = document.getElementById("progressBar");
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("show");
+        if (i === index) {
+          slide.classList.add("show");
+        }
+      });
+
+      progressBar.style.width = "0%";
+      progressBar.style.transition = "none";
+      void progressBar.offsetWidth; // Force reflow
+      progressBar.style.transition = "width 5s linear";
+      progressBar.style.width = "100%";
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    showSlide(current);
+    setInterval(nextSlide, 5000);
+  </script>
+
+</body>
+</html>
