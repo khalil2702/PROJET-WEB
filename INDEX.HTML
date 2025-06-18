@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transport Sénégal</title>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4faff;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+      scroll-behavior: smooth;
+    }
+
+    header, footer {
+      background-color: #005baa;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav {
+      background-color: #0077cc;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo svg {
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      background-color: #0077cc;
+      padding: 1rem;
+      animation: slideDown 0.3s ease;
+    }
+
+    .nav-mobile a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    section {
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1 1 calc(33% - 2rem);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .form-section {
+      background-color: #e6f0ff;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    input, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .nav-mobile {
+        display: none;
+      }
+
+      .nav-mobile.active {
+        display: flex;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1> KAYE NIOU DEM </h1>
+    <p>Tous les moyens de transport au Sénégal en un seul endroit</p>
+  </header>
+
+  <nav>
+    <div class="logo">
+      <svg width="24" height="24" stroke="white" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M9 9h6v6H9z"/></svg>
+      Transport.sn
+    </div>
+    <div class="nav-links">
+      <a href="#types"><i data-lucide="bus"></i>Types</a>
+      <a href="#reservation"><i data-lucide="calendar-plus"></i>Réservation</a>
+      <a href="#billets"><i data-lucide="ticket"></i>Billets</a>
+      <a href="#contact"><i data-lucide="mail"></i>Contact</a>
+    </div>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#types"><i data-lucide="bus"></i>Types</a>
+      <a href="#reservation"><i data-lucide="calendar-plus"></i>Réservation</a>
+      <a href="#billets"><i data-lucide="ticket"></i>Billets</a>
+      <a href="#contact"><i data-lucide="mail"></i>Contact</a>
+
+    </div>
+  </nav>
+
+  <section id="types">
+    <h2>Moyens de transport disponibles</h2>
+    <div class="grid">
+      <!-- Cartes inchangées -->
+      <div class="card"><img src="image/TER2.webp"><h3>Train (TER)</h3><p>Transport express moderne entre Dakar et Diamniadio.</p></div>
+      <div class="card"><img src="image/BRT.jpeg"><h3>Bus & BRT</h3><p>Réseau de bus urbains et futur BRT rapide pour Dakar.</p></div>
+      <div class="card"><img src="image/Macky-Sall-taxi-de-l-emergence.jpg"><h3>Taxi & Taxi collectif</h3><p>Service individuel ou partagé selon les trajets.</p></div>
+      <div class="card"><img src="image/car-rapide.jpg"><h3>CAR RAPIDE</h3><p>Rapide et disponible dans les zones peu desservies.</p></div>
+      <div class="card"><img src="image/TVTV.jpg"><h3>TVTV</h3><p>Transport polyvalent interurbain et régional.</p></div>
+      <div class="card"><img src="image/ddd-dakar-dem-dikk-1.jpg"><h3>Dem Dikk</h3><p>Transport polyvalent interurbain et régional.</p></div>
+    </div>
+  </section>
+
+  <section id="reservation">
+    <h2>Réserver un Billet</h2>
+    <div class="form-section">
+      <form>
+        <label for="transport">Type de transport :</label>
+        <select id="transport">
+          <option>Train</option><option>Bus</option><option>BRT</option>
+          <option>Taxi</option><option>Moto</option><option>TVTV</option>
+        </select>
+        <label>Départ :</label><input type="text" placeholder="Ex : Dakar" />
+        <label>Destination :</label><input type="text" placeholder="Ex : Thiès" />
+        <label>Date :</label><input type="date" />
+        <button type="submit">Réserver</button>
+      </form>
+    </div>
+  </section>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carte Sénégal – Réservation Transport</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      background: #f4faff;
+      color: #003366;
+    }
+    h2 {
+      color: #005baa;
+    }
+    #map {
+      height: 500px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .info {
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choisissez un point de départ et d'arrivée sur la carte</h2>
+  <div id="map"></div>
+  <p class="info" id="depart">📍 Départ : non sélectionné</p>
+  <p class="info" id="arrivee">🏁 Arrivée : non sélectionnée</p>
+  <button onclick="resetSelection()">Réinitialiser</button>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([14.4974, -14.4524], 6);
+
+    // Ajouter carte OSM
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let departMarker = null;
+    let arriveeMarker = null;
+    let step = 0;
+
+    map.on('click', function (e) {
+      const latlng = e.latlng;
+
+      if (step === 0) {
+        if (departMarker) map.removeLayer(departMarker);
+        departMarker = L.marker(latlng).addTo(map).bindPopup("Départ").openPopup();
+        document.getElementById('depart').innerText =
+          `📍 Départ : ${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+        step = 1;
+      } else if (step === 1) {
+        if (arriveeMarker) map.removeLayer(arriveeMarker);
+        arriveeMarker = L.marker(latlng).addTo(map).bindPopup("Arrivée").openPopup();
+        document.getElementById('arrivee').innerText =
+          `🏁 Arrivée : ${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+        step = 2;
+
+        // Optionnel : afficher distance ou activer le bouton de paiement
+        // const distance = map.distance(departMarker.getLatLng(), arriveeMarker.getLatLng()) / 1000;
+        // alert(`Distance estimée : ${distance.toFixed(2)} km`);
+      }
+    });
+
+    function resetSelection() {
+      if (departMarker) map.removeLayer(departMarker);
+      if (arriveeMarker) map.removeLayer(arriveeMarker);
+      document.getElementById('depart').innerText = "📍 Départ : non sélectionné";
+      document.getElementById('arrivee').innerText = "🏁 Arrivée : non sélectionnée";
+      step = 0;
+    }
+  </script>
+
+</body>
+</html>
+
+  <section id="billets">
+    <h2>Billets</h2>
+    <p>Visualisez vos billets électroniques ici :</p>
+    <img src="image/CARTE TER.avif" alt="Billet" style="width: 100%; max-width: 600px; border-radius: 10px;">
+  </section>
+<div id="payment-section" style="display: none; margin-top: 2rem;">
+  <h3>Procéder au paiement</h3>
+  <p>Choisissez une méthode :</p>
+  <button onclick="pay('wave')">Payer avec Wave</button>
+  <button onclick="pay('orange')">Payer avec Orange Money</button>
+</div>
+<button id="reserveBtn" type="submit">Réserver</button>
+<script>
+  lucide.createIcons();
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
+  // Animation des sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+  // Intercepter la réservation pour afficher les options de paiement
+  document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Réservation effectuée avec succès ! Veuillez procéder au paiement.');
+    document.getElementById('payment-section').style.display = 'block';
+  });
+
+  // Fonction de paiement simulé
+  function pay(method) {
+    let service = method === 'wave' ? 'Wave' : 'Orange Money';
+    alert(`Redirection vers le paiement ${service}...\n(Paiement simulé avec succès)`);
+  }
+</script>
+  <section id="contact">
+    <h2>Contactez-nous</h2>
+    <div class="form-section">
+      <form>
+        <input type="text" placeholder="Nom" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="4" placeholder="Votre message..."></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Transport Sénégal - Tous droits réservés</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    // Animation d'apparition des sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
